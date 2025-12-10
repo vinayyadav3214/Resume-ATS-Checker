@@ -96,7 +96,7 @@ def render_gauge(score):
 # ------------------------------------------------------------
 st.set_page_config(page_title="ATS Resume Evaluator", layout="wide")
 
-st.markdown("<h1 style='text-align:center;'>ATS Resume Evaluator</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center;'>ATS Resume Evaluator<span style='font-size:14px; color:#888;'> by Vinay Yadav</span></h1>", unsafe_allow_html=True)
 
 left, right = st.columns([1, 1])
 
