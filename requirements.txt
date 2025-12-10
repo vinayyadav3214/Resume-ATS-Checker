@@ -3,4 +3,4 @@ langgraph
 openai
 langchain-groq
 langchain-openai
-docx
+python-docx
