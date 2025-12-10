@@ -122,6 +122,43 @@ llm = ChatGroq(
 )
 
 
+
+
+
+def format_report(data):
+    report = f"""
+### 📌 Match Summary
+{data['match_summary']}
+
+---
+
+### ❌ Missing Keywords
+{"\n".join("- " + kw for kw in data['missing_keywords']) if data['missing_keywords'] else "None"}
+
+---
+
+### ❌ Missing Skills
+{"\n".join("- " + sk for sk in data['missing_skills']) if data['missing_skills'] else "None"}
+
+---
+
+### ⚠️ Experience Gaps
+{"\n".join("- " + gap for gap in data['experience_gaps']) if data['experience_gaps'] else "None"}
+
+---
+
+### 🔧 Improvement Suggestions
+{"\n".join("- " + sug for sug in data['improvement_suggestions']) if data['improvement_suggestions'] else "None"}
+
+---
+
+### 📝 Sections to Add or Fix
+{"\n".join("- " + sec for sec in data['sections_to_add_or_fix']) if data['sections_to_add_or_fix'] else "None"}
+"""
+    return report
+
+
+
 # ------------------------------------------------------------
 # Evaluate
 # ------------------------------------------------------------
@@ -179,5 +216,6 @@ Return ONLY this JSON format:
     st.markdown("### Match Score")
     st.markdown(render_gauge(data["ats_score"]), unsafe_allow_html=True)
 
-    # JSON output
-    st.json(data)
+    st.markdown("### Detailed Report")
+    st.markdown(format_report(data))
+
