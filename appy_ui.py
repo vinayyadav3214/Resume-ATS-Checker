@@ -1,6 +1,7 @@
 import streamlit as st
 from docx import Document
 from langchain_openai import ChatOpenAI
+from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, SystemMessage
 from dotenv import load_dotenv
 import os
@@ -112,12 +113,12 @@ with right:
 # ------------------------------------------------------------
 # Load LLM with API key
 # ------------------------------------------------------------
-openai_key = os.getenv("OPENAI_API_KEY")
+groq_api_key = os.getenv("GROQ_API_KEY")
 
-llm = ChatOpenAI(
-    model="gpt-5-chat-latest",
+llm = ChatGroq(
+    model="llama-3.1-8b-instant",
     temperature=0,
-    api_key=openai_key
+    api_key=groq_api_key
 )
 
 
