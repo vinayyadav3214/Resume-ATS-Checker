@@ -4,3 +4,4 @@ openai
 langchain-groq
 langchain-openai
 python-docx
+dotenv
